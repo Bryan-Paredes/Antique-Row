@@ -1,0 +1,43 @@
+---
+import fetchApi from "../lib/strappi";
+import type Store from "../interfaces/store";
+import Layout from "../layouts/Layout.astro";
+// import { getStoreImage } from "../lib/get-stores";
+import { getStores } from "../lib/get-stores";
+import { ViewTransitions } from "astro:transitions";
+
+// const stores = await fetchApi<Store[]>({
+//   endpoint: "stores",
+//   wrappedByKey: "data",
+// });
+
+const stores = await getStores();
+---
+
+<Layout title="Directory Antique Row" description="Directory Antique Row">
+  <ViewTransitions />
+  <main class="h-svh m-10">
+    <h1 class="text-3xl font-bold text-center">Directory</h1>
+    <div
+      class="grid grid-cols-3 gap-4 p-4 bg-white rounded-xl drop-shadow-lg my-10 mx-auto"
+    >
+      {
+        stores.map(({ storeName, slug, image }) => (
+          <a href={`/store/${slug}`}>
+            <div class="flex flex-col gap-4 p-4 items-center justify-center bg-old-rose-300/40 backdrop:blur-md rounded-xl drop-shadow-lg my-5 hover:bg-old-rose-300 hover:scale-[1.02] transition-all duration-75 ease">
+              <h2 class="text-xl font-bold uppercase text-center">
+                {storeName}
+              </h2>
+              <img
+                src={image}
+                alt="Store Image"
+                class="w-64 h-64 object-cover rounded-md"
+                transition:name="product-image"
+              />
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </main>
+</Layout>

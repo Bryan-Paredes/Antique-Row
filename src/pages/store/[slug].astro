@@ -1,0 +1,81 @@
+---
+// import fetchApi from "../../lib/strappi";
+// import type Store from "../../interfaces/store";
+import Layout from "../../layouts/Layout.astro";
+import { getStores } from "../../lib/get-stores";
+import { ViewTransitions } from "astro:transitions";
+
+export async function getStaticPaths() {
+  const store = await getStores();
+
+  return store.map((store) => ({
+    params: { slug: store.slug },
+    props: store,
+  }));
+}
+// type Props = Store;
+
+const store = Astro.props;
+---
+
+<Layout title={store.storeName} description={store.storeDescription}>
+  <ViewTransitions />
+  <main class="container p-10 bg-white rounded-lg drop-shadow-md my-16 mx-auto">
+    <div class="flex">
+      <a
+        href="/directory"
+        class="flex w-fit px-4 py-2 items-center justify-start gap-2 bg-old-rose-400 text-white rounded-lg"
+      >
+        <img src="/icons/arrow.svg" alt="logo" class="w-5 h-5 fill-white" />
+        <span class="text-sm font-bold">Go Back</span>
+      </a>
+    </div>
+    <div class="flex mt-8 items-center justify-center">
+      <div class="flex items-center justify-center gap-14">
+        <div>
+          <img
+            src={store.image}
+            alt="Store Image"
+            class="w-64 h-64 rounded-lg object-cover"
+            transition:name="product-image"
+          />
+        </div>
+        <div class="flex flex-col gap-7 items-start justify-center">
+          <h1 class="text-3xl font-bold uppercase">{store.storeName}</h1>
+          <p class="text-lg font-medium text-gray-500">
+            {store.storeDescription}
+          </p>
+          <div class="flex flex-col gap-2 items-center">
+            <a
+              href={store.storeWebsite}
+              target="_blank"
+              class="flex items-center gap-2 cursor-pointer hover:text-old-rose-600"
+            >
+              <img src="/social/facebook.svg" alt="facebook" class="w-5 h-5" />
+              <p>Facebook</p>
+            </a>
+            <a
+              href={store.storeWebsite}
+              target="_blank"
+              class="flex items-center gap-2 cursor-pointer hover:text-old-rose-600"
+            >
+              <img src="/social/instagram.svg" alt="facebook" class="w-5 h-5" />
+              <p>Instagram</p>
+            </a>
+            <!-- <a
+              href={store.storeWebsite}
+              target="_blank"
+              class="flex items-start gap-2 cursor-pointer hover:text-old-rose-600"
+            >
+              <img src="/social/X.svg" alt="facebook" class="w-5 h-5" />
+              <p>X</p>
+            </a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="flex items-center justify-center mt-10 w-4/5 h-[300px] mx-auto">
+      <iframe src={store.storeMap} class="rounded-lg w-full h-full"></iframe>
+    </div>
+  </main>
+</Layout>
