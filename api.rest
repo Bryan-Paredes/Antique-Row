@@ -1,0 +1,1 @@
+http://localhost:1337/api/stores?fields[0]=storeName&fields[1]=slug&fields[2]=storeDescription&fields[3]=storeMap&populate[storeImages][fields][0]=url
