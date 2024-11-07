@@ -1,0 +1,39 @@
+---
+const socialMedia = [
+  {
+    id: "1",
+    name: "Instagram",
+    href: "https://www.instagram.com/antiquerow/",
+    icon: "/social/instagram.svg",
+  },
+  {
+    id: "2",
+    name: "Facebook",
+    href: "https://www.facebook.com/antiquerow/",
+    icon: "/social/facebook.svg",
+  },
+  {
+    id: "3",
+    name: "X",
+    href: "https://twitter.com/antiquerow",
+    icon: "/social/X.svg",
+  },
+];
+---
+
+<main class="flex justify-center items-center gap-2">
+  {
+    socialMedia.map(({ name, href, icon }) => (
+      <a
+        href={href}
+        class="text-base uppercase py-1 px-2 bg-[#ffffff] rounded-lg drop-shadow-md"
+      >
+        <img
+          src={icon}
+          alt={name}
+          class="w-8 h-8 hover:scale-110 transition-shadow .2s ease"
+        />
+      </a>
+    ))
+  }
+</main>
