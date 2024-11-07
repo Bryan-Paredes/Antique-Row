@@ -1,0 +1,92 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Contact Antique Row" description="Contact Antique Row">
+  <main class="container p-10 bg-white rounded-lg drop-shadow-md my-16">
+    <section class="flex items-start justify-center">
+      <div>
+        <h1 class="text-4xl font-bold text-center capitalize">Get in Touch</h1>
+        <div class="flex flex-col p-4 mt-7 gap-3 items-start justify-center">
+          <p class="text-lg max-w-xl">
+            It will be a pleasure for us to be able to answer any questions you
+            may have.
+          </p>
+          <div class="flex items-center justify-center gap-4">
+            <p class="text-lg font-medium text-gray-500">
+              antiquerow@gmail.com
+            </p>
+            <p class="text-lg font-medium text-gray-500">+1 (555) 555-5555</p>
+          </div>
+          <div class="mt-5">
+            <ul class="flex items-start justify-center gap-2">
+              <li class="bg-white p-2 drop-shadow-lg rounded-md">
+                <img src="/social/facebook.svg" alt="Facebook" />
+              </li>
+              <li class="bg-white p-2 drop-shadow-lg rounded-md">
+                <img src="/social/instagram.svg" alt="Instagram" />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div
+        class="flex flex-col w-[60%] h-[500px] mx-auto gap-4 items-center justify-center bg-old-rose-200 p-10 rounded-lg"
+      >
+        <form action="" class="w-full">
+          <div class="flex flex-col gap-1">
+            <label for="name" class="text-lg font-medium text-gray-500">
+              Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Enter your name"
+              class="w-full rounded-lg p-2 border-2 border-gray-300 focus:border-old-rose-500"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="email" class="text-lg font-medium text-gray-500">
+              Email
+            </label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Enter your email"
+              class="w-full rounded-lg p-2 border-2 border-gray-300 focus:border-old-rose-500"
+            />
+          </div>
+          <div class="flex flex-col gap-1">
+            <label for="message" class="text-lg font-medium text-gray-500">
+              Message
+            </label>
+            <textarea
+              name="message"
+              id="message"
+              placeholder="Enter your message"
+              class="w-full rounded-lg p-2 border-2 border-gray-300 focus:border-old-rose-500"
+            ></textarea>
+          </div>
+          <div class="flex items-center justify-start gap-2 mt-5">
+            <input type="checkbox" name="check" id="check" />
+            <span class="text-md font-medium text-gray-500">
+              I agree to the <a
+                href="#"
+                class="text-old-rose-500 border-b-2 border-old-rose-500"
+                >Terms and Conditions</a
+              >
+            </span>
+          </div>
+          <button
+            type="submit"
+            class="w-full mt-5 rounded-lg p-2 bg-old-rose-800 text-white"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+</Layout>
