@@ -17,7 +17,7 @@ export default function Header() {
       <NavBar isOpen={isOpen} />
       <div className="">
         <a
-          className=" text-base uppercase py-2.5 px-4 text-center bg-old-rose-700 text-white rounded-lg border-[1px]  hover:bg-transparent hover:text-old-rose-700 hover:border-old-rose-700 transition-all 2s ease hidden sm:block"
+          className=" text-sm uppercase py-2.5 px-4 text-center bg-old-rose-700 text-white rounded-lg border-[1px]  hover:bg-transparent hover:text-old-rose-700 hover:border-old-rose-700 transition-all 2s ease hidden sm:block"
           href="/contact"
         >
           Contact
