@@ -15,10 +15,12 @@ export async function getStaticPaths() {
 }
 // type Props = Store;
 
+export const prerender = true;
 const store = Astro.props;
+const { storeName, storeDescription, image, storeMap } = store;
 ---
 
-<Layout title={store.storeName} description={store.storeDescription}>
+<Layout title={storeName} description={storeDescription}>
   <ViewTransitions />
   <main class="container p-10 bg-white rounded-lg drop-shadow-md my-16 mx-auto">
     <div class="flex">
@@ -34,20 +36,20 @@ const store = Astro.props;
       <div class="flex items-center justify-center gap-14">
         <div>
           <img
-            src={store.image}
+            src={image}
             alt="Store Image"
             class="w-64 h-64 rounded-lg object-cover"
             transition:name="product-image"
           />
         </div>
         <div class="flex flex-col gap-7 items-start justify-center">
-          <h1 class="text-3xl font-bold uppercase">{store.storeName}</h1>
+          <h1 class="text-3xl font-bold uppercase">{storeName}</h1>
           <p class="text-lg font-medium text-gray-500">
-            {store.storeDescription}
+            {storeDescription}
           </p>
           <div class="flex flex-col gap-2 items-center">
             <a
-              href={store.storeWebsite}
+              href="#"
               target="_blank"
               class="flex items-center gap-2 cursor-pointer hover:text-old-rose-600"
             >
@@ -55,7 +57,7 @@ const store = Astro.props;
               <p>Facebook</p>
             </a>
             <a
-              href={store.storeWebsite}
+              href="#"
               target="_blank"
               class="flex items-center gap-2 cursor-pointer hover:text-old-rose-600"
             >
@@ -75,7 +77,7 @@ const store = Astro.props;
       </div>
     </div>
     <div class="flex items-center justify-center mt-10 w-4/5 h-[300px] mx-auto">
-      <iframe src={store.storeMap} class="rounded-lg w-full h-full"></iframe>
+      <iframe src={storeMap} class="rounded-lg w-full h-full"></iframe>
     </div>
   </main>
 </Layout>

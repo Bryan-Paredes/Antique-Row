@@ -5,7 +5,7 @@ export function getStores() {
         .then(res => {
             return res.data.map(store => {
                 const { storeName, slug, storeDescription, storeMap, storeImages: rawImage } = store;
-                const image = `${import.meta.env.STRAPI_HOST}/${rawImage[0].url}`;
+                const image = `${import.meta.env.STRAPI_MEDIA}/${rawImage[0].url}`;
 
                 return { storeName, slug, storeDescription, storeMap, image };
             })
